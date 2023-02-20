@@ -17,7 +17,7 @@ A language processor consists of 5 parts:
 
 ## Functionalities of this Language Processor
 This Language Processor implements only some basic functionalities of JavaScript. These are:
-- Comments using the format ```\/\*Type comment here*/```
+- Comments using the format ```/*Type comment here*/```
 - Integer numbers
 - Phrases (strings)
 - Arithmetic operator ```+```, applicable on integer expressions, giving an integer as result
