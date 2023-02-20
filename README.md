@@ -40,91 +40,91 @@ That means than the source code can only contain these expressions. In the text 
 As mentioned before there is one symbol table for every range (local and global). Both symbol tables are implemented with ArrayLists. Each element in the symbol table is an Element object and therefore the columns of the tables are defined by the fields of the Element class which are name, type, despl (refering to the memory address of the identifier), returnType (for functions), paramTypes (for functions) and paramQuantity (for functions). In the global symbol table only the paramTypes field is not shown. In the local symbol table we can only store local variables (function declaration is not valid inside another function) and therefore we only care about the name, type, and despl fields. The local symbol table gets destroyed exactly after it is printed.
 
 ## Syntactic Analyzer and Syntax Grammar
-There many types of syntactic analyzers, however this project uses a predictive recursive descent parser. Information about what a predictive recursive descent parser is can be found [here](https://www.tutorialspoint.com/compiler_design/compiler_design_top_down_parser.htm). The syntax grammar that is presented below has been constructed especially for this kind of syntactic analyzer. There is a total of 59 rules in the grammar and each rule may consist of non-terminal symbols (capital leters, some of them followed by a number), terminal symbols (tokens) or both. The Syntax Grammar is:
+There many types of syntactic analyzers, however this project uses a predictive recursive descent parser. Information about what a predictive recursive descent parser is can be found [here](https://www.tutorialspoint.com/compiler_design/compiler_design_top_down_parser.htm). The syntax grammar that is presented below has been constructed especially for this kind of syntactic analyzer. There is a total of 59 rules in the grammar and each rule may consist of non-terminal symbols (capital letters, some of them followed by a number), terminal symbols (tokens) or both. The Syntax Grammar is:
 
 > 1) P -> B P                          
 > 2) P -> S P
 > 3) P -> F P
 > 4) P -> λ
 
-5) B -> if(E) B1
-6) B -> let id T;
-7) B -> for(I; J; U) {N}
+> 5) B -> if(E) B1
+> 6) B -> let id T;
+> 7) B -> for(I; J; U) {N}
 
-8) S -> id S1
-9) S -> print E ;
-10) S -> input id;
-11) S -> return X;
+> 8) S -> id S1
+> 9) S -> print E ;
+> 10) S -> input id;
+> 11) S -> return X;
 
-12) F -> function id H (A) {C}
+> 12) F -> function id H (A) {C}
 
-13) E -> R W 
+> 13) E -> R W 
  
-14) B1 -> S
-15) B1 -> {N} B2
+> 14) B1 -> S
+> 15) B1 -> {N} B2
 
-16) T -> int
-17) T -> string
+> 16) T -> int
+> 17) T -> string
 
-18) I -> id = U
-19) I -> λ
+> 18) I -> id = U
+> 19) I -> λ
 
-20) J -> id J1
+> 20) J -> id J1
 
-21) U -> V Y
+> 21) U -> V Y
 
-22) N -> S
-23) N -> B
+> 22) N -> S
+> 23) N -> B
 
-24) S1 -> = E;
-25) S1 -> (L);
+> 24) S1 -> = E;
+> 25) S1 -> (L);
 
-26) X -> E
-27) X -> λ
+> 26) X -> E
+> 27) X -> λ
 
-28) H -> T
-29) H -> λ
+> 28) H -> T
+> 29) H -> λ
 
-30) A -> T id K
-31) A -> λ
+> 30) A -> T id K
+> 31) A -> λ
 
-32) C -> B C
-33) C -> S C
-34) C -> λ
+> 32) C -> B C
+> 33) C -> S C
+> 34) C -> λ
 
-35) R -> U Z
+> 35) R -> U Z
 
-36) W -> && R
-37) W -> λ
+> 36) W -> && R
+> 37) W -> λ
 
-38) B2 -> else {N}
-39) B2 -> λ
+> 38) B2 -> else {N}
+> 39) B2 -> λ
 
-40) J1 -> == U
-41) J1 -> != U
+> 40) J1 -> == U
+> 41) J1 -> != U
 
-42) V -> id V1
-43) V -> (E)
-44) V -> integer
-45) V -> phrase
+> 42) V -> id V1
+> 43) V -> (E)
+> 44) V -> integer
+> 45) V -> phrase
 
-46) Y -> + V
-47) Y -> λ
+> 46) Y -> + V
+> 47) Y -> λ
 
-48) L -> E Q
-49) L -> λ
+> 48) L -> E Q
+> 49) L -> λ
 
-50) K -> , T id K
-51) K -> λ
+> 50) K -> , T id K
+> 51) K -> λ
 
-52) Z -> == U
-53) Z -> != U
-54) Z -> λ
+> 52) Z -> == U
+> 53) Z -> != U
+> 54) Z -> λ
 
-55) V1 -> ++
-56) V1 -> (L)
-57) V1 -> λ
+> 55) V1 -> ++
+> 56) V1 -> (L)
+> 57) V1 -> λ
 
-58) Q -> , E Q
-59) Q -> λ
+> 58) Q -> , E Q
+> 59) Q -> λ
 
