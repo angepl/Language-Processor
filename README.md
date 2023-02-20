@@ -9,7 +9,7 @@ In order for the program to run on your computer you need to specify the paths o
 
 ## Introduction to the project
 A language processor consists of 5 parts:
-- Lexical Analyzer. It reads the characters of the source code one by one and constructs tokens. The tokens are being formed with the help of a Lexical Grammar that shows which combinations of characters are valid to construct a specific token and which are not.
+- Lexical Analyzer. It reads the characters of the source code one by one and constructs tokens. The tokens are being formed with the help of a Lexical Grammar and a Transition Matrix that shows which combinations of characters are valid to construct a specific token and which are not.
 - Syntactic Analyzer. It initiates the analysis of the source code by asking for tokens from the Lexical Analyzer. There is a Syntax Grammar that shows which combination of tokens can form a syntactically valid sentence. Each token that is received, is being filtered through that grammar in order to verify whether the token can be placed in this position, depending on the previous tokens. The Syntax Grammar is crucial for the implementation of the Language Processor and it is presented later in the text.
 - Semantic Analyzer. It is responsible for checking whether an expression has a valid meaning in the language, by keeping track of some attributes for the symbols in the Syntax Grammar. That procedure includes the verification of storing the correct values in variables according to their type, whether a function call has as many parameters as arguments in the function declaration, etc..
 - Symbol Table. It is a data structure that holds all the variables (including function names and arguments) of the source code. There is a local symbol table that stores the variables that exist within the implementaion of a function and can only be read by that function, and a global symbol table that stores all the global variables, the function names and the function arguments.
@@ -134,3 +134,28 @@ The Syntax Grammar is:
 > 59) Q -> λ
 
 The non-terminal P is the axiom of the grammar, which means that the analysis of the source code begins from one of the rules of P. In the program implementation, each non-terminal symbol is presented as a function inside the syntacticAnalyzer class and each rule of that non-terminal is presented as an *if case* inside its function. Sometimes, in order to decide the next rule to be followed, we use the FIRST or FOLLOW of that specific non-terminal. Information about what FIRST and FOLLOW is can be found [here](https://www.tutorialspoint.com/what-are-first-and-follow-and-how-they-are-computed).
+
+##Semantic Analyzer
+The Semantic Analyzer in this project is implemented inside the Syntactic Analyzer. That is because we want the Semantic Analyzer to act depending on the syntax rule, and therefore there are semantic actions take place inside the functions that belong to the non-terminal symbols. It uses attributes of the non-terminal symbols of the Syntax Grammar to check their semantic correctness. The most common attribute - used for every non-terminal - is the type attribute that can be int, string, boolean, function, error or ok, depending on the non-terminal symbol. The semantic analyzer is in charge of many things throughout the analysis of the soure code, such as the creation and destruction of the symbol table, checking if the value of a return statement matches the return type of the function, storing the identifiers' attributes in the symbol table and many more. Although the lexical and syntax errors are being handled by the Error Handler in Error class, in this program the semantic errors are directly printed by the Semantic Analyzer due to their complexity.
+
+##Information about additional functions and variables in the project
+- **character** (variable inside LexicalAnalyzer class) - refers to the character that was last read by the Lexical Analyzer and represents the column of the Transmition Matrix in the Lexical Analysis
+- **state** (variable inside LexicalAnalyzer class) - refers to the row of the Transition Matrix in the Lexical Analysis
+- **line** (variable inside LexicalAnalyzer class) - keeps track of the current line that is being analyzed by the Language Processor
+- **name** (field of Element class) - holds the name of the element in the symbol table
+- **type** (field of Element class) - holds the type of the element in the symbol table
+- **despl** (field of Element class) - holds the memory address of the element in the symbol table
+- **returnType** (field of Element class) - holds the return type of the element in the symbol table, in case it is a function
+- **paramTypes** (field of Element class) - holds the the types of the arguments of the element in the symbol table, in case it is a function
+- **paramQuantity** (field of Element class) - holds the number of arguments of the element in the symbol table, in case it is a function
+- **code** (field of Token class) - holds the unique code of the token
+- **attribute** (field of Token class) - holds supplementary information about the token (in case it is an integer, a phrase or an identifier - otherwise it is null)
+- **symbolTable** (ArrayList in SyntacticAnalyzer class) - refers to the global symbol table
+- **localTable** (ArrayList in SyntacticAnalyzer class) - refers to the local symbol table
+- **inFunction** (variable of SyntacticAnalyzer class) - it is true when we are currently inside a function implementation
+- **declMode** (variable of SyntacticAnalyzer class) - it is true when we are currently using rule 6 (B -> let id T;) which is the syntax rule for variable declaration
+- **analysis(File text)** (function of SyntacticAnalyzer class) - it initiates the analysis by asking the Lexical Analyzer for the first token and calling the the P() function, which is the function of the axiom
+- **compare(int code)** (function of SintacticAnalyzer class) - it is being called by the functions that belong to the non-terminal symbols, in order to verify that the current token is the token that was expected according to the syntax rule. It also asks the Lexical Analyzer for the next token
+- **first and follow functions** (inside SyntacticAnalyzer class) - they check whether the current token belongs to FIRST or FOLLOW set of a specific non-terminal symbol
+- **varExists(ArrayList<Element> table, String name)** - returns true if there is an element with a specific *name* inside the symbol table defined by *table*
+- **searchElement(ArrayList<Element> table, String name)** - searches for an element with a specific *name* inside the symbol table defined by *table*. If it finds such an element, it reutrns it
