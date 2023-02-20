@@ -138,7 +138,7 @@ The non-terminal P is the axiom of the grammar, which means that the analysis of
 ##Semantic Analyzer
 The Semantic Analyzer in this project is implemented inside the Syntactic Analyzer. That is because we want the Semantic Analyzer to act depending on the syntax rule, and therefore there are semantic actions take place inside the functions that belong to the non-terminal symbols. It uses attributes of the non-terminal symbols of the Syntax Grammar to check their semantic correctness. The most common attribute - used for every non-terminal - is the type attribute that can be int, string, boolean, function, error or ok, depending on the non-terminal symbol. The semantic analyzer is in charge of many things throughout the analysis of the soure code, such as the creation and destruction of the symbol table, checking if the value of a return statement matches the return type of the function, storing the identifiers' attributes in the symbol table and many more. Although the lexical and syntax errors are being handled by the Error Handler in Error class, in this program the semantic errors are directly printed by the Semantic Analyzer due to their complexity.
 
-##Information about additional functions and variables in the project
+## Information about additional functions and variables in the project
 - **character** (variable inside LexicalAnalyzer class) - refers to the character that was last read by the Lexical Analyzer and represents the column of the Transmition Matrix in the Lexical Analysis
 - **state** (variable inside LexicalAnalyzer class) - refers to the row of the Transition Matrix in the Lexical Analysis
 - **line** (variable inside LexicalAnalyzer class) - keeps track of the current line that is being analyzed by the Language Processor
