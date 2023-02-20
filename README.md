@@ -17,7 +17,7 @@ A language processor consists of 5 parts:
 
 ## Functionalities of this Language Processor
 This Language Processor implements only some basic functionalities of JavaScript. These are:
-- Comments using the format \/*Type comment here*/. These
+- Comments using the format \/\*Type comment here*/. These
 
 ## Tokens
 In this project valid tokens are considered:
