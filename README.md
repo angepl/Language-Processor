@@ -20,7 +20,7 @@ In this project valid tokens are considered:
 - integers in [0, 32767] 
 - phrases (strings) inside double quotation marks (i.e. "Hello World!")
 - ++ 
-- /+ 
+-+ 
 - == 
 - = 
 - != 
