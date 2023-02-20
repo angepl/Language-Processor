@@ -32,7 +32,7 @@ In this project valid tokens are considered:
 - } 
 - ,
 - identifiers of variables and functions starting with a letter or underscore _ (assuming they are not keywords) 
-- The keywords; let, int, string, print, input, return, if, else, for, function
+- the keywords; let, int, string, print, input, return, if, else, for, function
 
 That means than the source code can only contain these expressions. In the text file, where the list of tokens is going to be printed, the tokens are going to have the following format <token_code, token_attribute>. Token code refers to the unique code of the token (in most cases it is the sequence of characters of the token) whereas token attribute is only used to hold the values of integer and phrase tokens, as well as and the names of the identifiers. Tokens are implemented through the Token class.
 
@@ -40,4 +40,4 @@ That means than the source code can only contain these expressions. In the text 
 As mentioned before there is one symbol table for every range (local and global). Both symbol tables are implemented with ArrayLists. Each element in the symbol table is an Element object and therefore the columns of the tables are defined by the fields of the Element class which are name, type, despl (refering to the memory address of the identifier), returnType (for functions), paramTypes (for functions) and paramQuantity (for functions). In the global symbol table only the paramTypes field is not shown. In the local symbol table we can only store local variables (function declaration is not valid inside another function) and therefore we only care about the name, type, and despl fields. The local symbol table gets destroyed exactly after it is printed.
 
 ## Syntactic Analyzer and Syntax Grammar
-
+There many types of syntactic analyzers, however this project uses a predictive recursive descent parser. Information about what a predictive recursive parser is can be found [here](https://www.tutorialspoint.com/compiler_design/compiler_design_top_down_parser.htm))
