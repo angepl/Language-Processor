@@ -42,7 +42,7 @@ As mentioned before there is one symbol table for every range (local and global)
 ## Syntactic Analyzer and Syntax Grammar
 There many types of syntactic analyzers, however this project uses a predictive recursive descent parser. Information about what a predictive recursive descent parser is can be found [here](https://www.tutorialspoint.com/compiler_design/compiler_design_top_down_parser.htm). The syntax grammar that is presented below has been constructed especially for this kind of syntactic analyzer. There is a total of 59 rules in the grammar and each rule may consist of non-terminal symbols (capital letters, some of them followed by a number), terminal symbols (tokens) or both. The Syntax Grammar is:
 
-> 1) P -> B P                          
+> ##### 1) P -> B P                          
 > 2) P -> S P
 > 3) P -> F P
 > 4) P -> λ
