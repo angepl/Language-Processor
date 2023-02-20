@@ -17,17 +17,26 @@ A language processor consists of 5 parts:
 
 ## Functionalities of this Language Processor
 This Language Processor implements only some basic functionalities of JavaScript. These are:
-- Comments using the format \/\*Type comment here*/
+- Comments using the format ```\/\*Type comment here*/```
 - Integer numbers
 - Phrases (strings)
-- Arithmetic operator +, applicable on integer expressions
-- Relational operator ==, applicable on integer, string or boolean expressions
-- Relational operator !=, applicable on integer, string or boolean expressions
-- Logical operator &&, applicable on boolean expressions
-- Increasing operator ++, applicable on integer expressions
-- Asignation operator = 
-- Variables names, which can start with a letter or underscore. JavaScript is case-sensitive!
+- Arithmetic operator ```+```, applicable on integer expressions, giving an integer as result
+- Relational operator ```==```, applicable on integer, string or boolean expressions, giving a boolean as a result 
+- Relational operator ```!=```, applicable on integer, string or boolean expressions, giving a boolean as a result
+- Logical operator ```&&```, applicable on boolean expressions, giving a boolean as a result
+- Increasing operator ```++```, applicable on integer expressions, giving an integer as a result
+- Asignation operator ```=``` 
+- Variables names, which can start with a letter or underscore. If a variable that has not been declared is used, it is considered global and of integer type. JavaScript is case-sensitive
 - Variable declaration with the expression ```let variable_name type;```
+- Data types ```int``` and ```string```. Integer variables occupy 16 bits in the memory, while strings occupy 1024 bits
+- Print command with the expression ```print expression ;```
+- Input command with the expression ```input variable_name ;```
+- Function calls with the name of the function followed by the correct number and type of parameters
+- Return statement with the expression ```return expression ;```. The expression in the return statement need to match the return type of the function
+- If-statement, followed by a condition, with the format ```if(condition) {...}```. The condition needs to be a boolean expression.
+- Else-statement used after an if-statement with the format ```if(condition) {...} else {...}```
+- For-loop using the format ```for(initialization; condition; action;) {...}```. The initialization can be an asignation sentence or nothing and the condition needs to be a boolean expression
+- Function declaration with the expression ```function function_name type (type1 arg1, type2 arg2,...)```. There might be no arguments in the function. A function can call itself. A function cannot be declared inside another function.
 
 ## Tokens
 In this project valid tokens are considered:
