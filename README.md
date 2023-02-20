@@ -1,7 +1,7 @@
 # Language-Processor
 This is a Java project implementing a language processor for some basic functionalities of JavaScript programming language. The program receives a text file with the source code written in JavaScript and it gives as output all the tokens that were detected, all the grammar rules of the syntax grammar that were used (in the same order as they were used) and the symbol tables of global and local range. If any type of error (lexical, syntax or semantic) is detected through the process, an error message with some relative information is printed.
 
-***Important notice***
+***Important notice:***
 In order for the program to run on your computer you need to specify the paths of following files:
 1. The file that contains the source code written in JavaScript. The path needs to be placed in line 6 of Main.java
 2. The file in which you wish to print the list with the tokens. The path needs to be placed in line 13 of SyntacticAnalyzer.java
@@ -42,7 +42,8 @@ As mentioned before there is one symbol table for every range (local and global)
 ## Syntactic Analyzer and Syntax Grammar
 There many types of syntactic analyzers, however this project uses a predictive recursive descent parser. Information about what a predictive recursive descent parser is can be found [here](https://www.tutorialspoint.com/compiler_design/compiler_design_top_down_parser.htm). The syntax grammar that is presented below has been constructed especially for this kind of syntactic analyzer. There is a total of 59 rules in the grammar and each rule may consist of non-terminal symbols (capital letters, some of them followed by a number), terminal symbols (tokens) or both. 
 
-***Lamda (λ) refers to a null character, for example if there is a rule D -> λ that means there is an option to skip the non-terminal symbol D whenever it is seen in the grammar. The terminal symbol 'id' refers to idientifiers (variable or function names).***
+***Important notice:***
+Lamda (λ) refers to a null character, for example if there is a rule D -> λ that means there is an option to skip the non-terminal symbol D whenever it is seen in the grammar. The terminal symbol 'id' refers to idientifiers (variable or function names).
 
 The Syntax Grammar is:
 
