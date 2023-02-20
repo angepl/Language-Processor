@@ -157,5 +157,5 @@ The Semantic Analyzer in this project is implemented inside the Syntactic Analyz
 - **analysis(File text)** (function of SyntacticAnalyzer class) - it initiates the analysis by asking the Lexical Analyzer for the first token and calling the the P() function, which is the function of the axiom
 - **compare(int code)** (function of SintacticAnalyzer class) - it is being called by the functions that belong to the non-terminal symbols, in order to verify that the current token is the token that was expected according to the syntax rule. It also asks the Lexical Analyzer for the next token
 - **first and follow functions** (inside SyntacticAnalyzer class) - they check whether the current token belongs to FIRST or FOLLOW set of a specific non-terminal symbol
-- **varExists(ArrayList<Element> table, String name)** - returns true if there is an element with a specific *name* inside the symbol table defined by *table*
-- **searchElement(ArrayList<Element> table, String name)** - searches for an element with a specific *name* inside the symbol table defined by *table*. If it finds such an element, it reutrns it
+- **varExists(ArrayList\<Element> table, String name)** - returns true if there is an element with a specific *name* inside the symbol table defined by *table*
+- **searchElement(ArrayList\<Element> table, String name)** - searches for an element with a specific *name* inside the symbol table defined by *table*. If it finds such an element, it reutrns it
