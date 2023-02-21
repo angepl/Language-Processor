@@ -32,7 +32,7 @@ This Language Processor implements only some basic functionalities of JavaScript
 - Print command with the expression ```print expression ;```
 - Input command with the expression ```input variable_name ;```
 - Function calls with the name of the function followed by the correct number and type of parameters
-- Return statement with the expression ```return expression ;```. The expression in the return statement need to match the return type of the function
+- Return statement with the expression ```return expression ;```. The expression in the return statement needs to match the return type of the function
 - If-statement, followed by a condition, with the format ```if(condition) {...}```. The condition needs to be a boolean expression.
 - Else-statement used after an if-statement with the format ```if(condition) {...} else {...}```
 - For-loop using the format ```for(initialization; condition; action;) {...}```. The initialization can be an asignation sentence or nothing and the condition needs to be a boolean expression
