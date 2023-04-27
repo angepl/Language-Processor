@@ -1,9 +1,9 @@
 # Language-Processor
-This is a Java project implementing a language processor for some basic functionalities of JavaScript programming language. The program receives a text file with the source code written in JavaScript and it gives as output all the tokens that were detected, all the grammar rules of the syntax grammar that were used (in the same order as they were used) and the symbol tables of global and local range. If any type of error (lexical, syntax or semantic) is detected through the process, an error message with some relevant information is printed.
+This is a Java project implementing a language processor for some basic functionalities of a modified version of JavaScript programming language. In this file, this modified version of JavaScript is refered to as EJavaScript. The program receives a text file with the source code written in EJavaScript and it gives as output all the tokens that were detected, all the grammar rules of the syntax grammar that were used (in the same order as they were used) and the symbol tables of global and local range. If any type of error (lexical, syntax or semantic) is detected through the process, an error message with some relevant information is printed.
 
 ***Important notice:***
 In order for the program to run on your computer you need to specify the paths of the following files:
-1. The file that contains the source code written in JavaScript. The path needs to be placed in line 6 of Main.java
+1. The file that contains the source code written in EJavaScript. The path needs to be placed in line 6 of Main.java
 2. The file in which you wish to print the list with the tokens. The path needs to be placed in line 13 of SyntacticAnalyzer.java
 3. The file in which you wish to print the list of the syntax grammar rules that were used. The path needs to be placed in line 14 of SyntacticAnalyzer.java
 
@@ -16,7 +16,7 @@ A language processor consists of 5 parts:
 - Error Handler. It communicates with the Lexical, the Syntactic and the Semantic Analyzer in order to deal with any detected errors.
 
 ## Functionalities of this Language Processor
-This Language Processor implements only some basic functionalities of JavaScript. These are:
+This Language Processor implements only some basic functionalities of JavaScript and some functionalities that do not really belong to JavaScript, but are gathered from other programming languages. These are:
 - Comments using the format ```/*Type comment here*/```
 - Integer numbers
 - Phrases (strings)
@@ -26,7 +26,7 @@ This Language Processor implements only some basic functionalities of JavaScript
 - Logical operator ```&&```, applicable on boolean expressions, giving a boolean as a result
 - Increasing operator ```++```, applicable on integer expressions, giving an integer as a result
 - Asignation operator ```=``` 
-- Variables names, which can start with a letter or underscore. If a variable that has not been declared is used, it is considered global and of integer type. JavaScript is case-sensitive
+- Variables names, which can start with a letter or underscore. If a variable that has not been declared is used, it is considered global and of integer type. EJavaScript is case-sensitive
 - Variable declaration with the expression ```let variable_name type;```
 - Data types ```int``` and ```string```. Integer variables occupy 16 bits in the memory, while strings occupy 1024 bits
 - Print command with the expression ```print expression ;```
